@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     private Rigidbody rb;
-    public float moveSpeed, jumpForce;
+    public float moveSpeed, jumpForce, doubleJumpForce;
+    private int jumpCounter;
 
     private Vector2 moveInput;
 
@@ -18,13 +19,20 @@ public class PlayerController : MonoBehaviour
 
     public bool stopMove;
 
-    public LayerMask whatIsGround;
+    public LayerMask whatIsGround, whatIsGrabbable;
     public Transform groundPoint;
     private bool isGrounded;
 
     public Transform camTarget;
     public float aheadAmount, aheadSpeed;
 
+    public bool doubleJumpEnabled, wallJumpEnabled;
+
+    public Transform wallGrabPoint;
+    private bool canGrab, isGrabbing;
+    public float wallJumpTime = .1f;
+    private float wallJumpCounter;
+    private Vector3 originalPosition;
 
     private void Awake()
     {
@@ -32,18 +40,19 @@ public class PlayerController : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        originalPosition = wallGrabPoint.transform.localPosition;
+    }
+
     void Update()
     {
-        if (!stopMove)
+        if (!stopMove && wallJumpCounter <= 0)
         {
             // Movement
             moveInput.x = Input.GetAxisRaw("Horizontal");
-            //moveInput.y = Input.GetAxisRaw("Vertical");
-            //moveInput.Normalize();
 
             rb.velocity = new Vector3(moveInput.x * moveSpeed, rb.velocity.y, moveInput.y * moveSpeed);
-
-            anim.SetFloat("moveSpeed", rb.velocity.magnitude);
 
             // Groundcheck
             RaycastHit hit;
@@ -59,15 +68,75 @@ public class PlayerController : MonoBehaviour
             // Jump
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
-                rb.velocity = new Vector3(0f, jumpForce, 0f);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
 
             if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
             {
-                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * .5f);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
             }
 
-            anim.SetBool("onGround", isGrounded);
+            // Double Jump
+            if (doubleJumpEnabled)
+            {
+                if (Input.GetButtonDown("Jump") && jumpCounter == 0 && !isGrounded)
+                {
+                    jumpCounter++;
+                    rb.velocity = new Vector2(0f, doubleJumpForce);
+                }
+            }
+
+            if (isGrounded)
+            {
+                jumpCounter = 0;
+            }
+
+            // Wall Jump
+            if (wallJumpEnabled)
+            {
+                RaycastHit stick;
+                if (Physics.Raycast(wallGrabPoint.position, Vector3.right, out stick, .2f, whatIsGrabbable) || Physics.Raycast(wallGrabPoint.position, Vector3.left, out stick, .2f, whatIsGrabbable))
+                {
+                    canGrab = true;
+                }
+                else
+                {
+                    canGrab = false;
+                }
+
+                isGrabbing = false;
+
+                if (canGrab && !isGrounded)
+                {
+                    if ((moveInput.x > 0f) || (moveInput.x < 0f))
+                    {
+                        isGrabbing = true;
+                    }
+                }
+
+                if (isGrabbing)
+                {
+                    rb.useGravity = false;
+                    rb.velocity = Vector2.zero;
+
+                    if (Input.GetButtonDown("Jump"))
+                    {
+                        wallJumpCounter = wallJumpTime;
+
+                        rb.velocity = new Vector2(-Input.GetAxisRaw("Horizontal") * moveSpeed, jumpForce);
+                        rb.useGravity = true;
+                        isGrabbing = false;
+                    }
+                }
+                else
+                {
+                    rb.useGravity = true;
+                }
+            }
+        }
+        else
+        {
+            wallJumpCounter -= Time.deltaTime;
         }
 
         // Sprite Flip
@@ -93,12 +162,24 @@ public class PlayerController : MonoBehaviour
             //flipAnim.SetTrigger("Flip");
         }
 
+        if (sr.flipX)
+        {
+            wallGrabPoint.transform.localPosition = new Vector3(-.75f, originalPosition.y, originalPosition.z);
+        }
+        else
+        {
+            wallGrabPoint.transform.localPosition = originalPosition;
+        }
+
         anim.SetBool("movingBackwards", movingBackwards);
+        anim.SetBool("onWall", isGrabbing);
+        anim.SetBool("onGround", isGrounded);
+        anim.SetFloat("moveSpeed", rb.velocity.magnitude);
 
         // Cam Target Look Ahead
-        if (Input.GetAxisRaw("Horizontal") != 0f)
+        /*if (Input.GetAxisRaw("Horizontal") != 0f)
         {
             camTarget.localPosition = new Vector3(Mathf.Lerp(camTarget.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"), aheadSpeed * Time.deltaTime), camTarget.localPosition.y, camTarget.localPosition.z);
-        }
+        }*/
     }
 }
