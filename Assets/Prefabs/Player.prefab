@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 353605776481534}
   - component: {fileID: 353605776481532}
   - component: {fileID: 7103271362604883626}
+  - component: {fileID: 1578648602317668640}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -236,6 +237,9 @@ MonoBehaviour:
   whatIsGrabbable:
     serializedVersion: 2
     m_Bits: 512
+  whatIsBoth:
+    serializedVersion: 2
+    m_Bits: 1024
   groundPoint: {fileID: 353605626064962}
   camTarget: {fileID: 598990273815943046}
   aheadAmount: 2
@@ -244,6 +248,19 @@ MonoBehaviour:
   wallJumpEnabled: 1
   wallGrabPoint: {fileID: 2565322783974389851}
   wallJumpTime: 0.1
+--- !u!65 &1578648602317668640
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353605776481531}
+  m_Material: {fileID: 13400000, guid: ff5a248e03f705244a53ca3cb89d55df, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &353606782249427
 GameObject:
   m_ObjectHideFlags: 0

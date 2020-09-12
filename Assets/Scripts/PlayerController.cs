@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public bool stopMove;
 
-    public LayerMask whatIsGround, whatIsGrabbable;
+    public LayerMask whatIsGround, whatIsGrabbable, whatIsBoth;
     public Transform groundPoint;
     private bool isGrounded;
 
@@ -47,6 +47,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (stopMove)
+        {
+            rb.velocity = Vector3.zero;
+        }
+
         if (!stopMove && wallJumpCounter <= 0)
         {
             // Movement
@@ -57,6 +62,10 @@ public class PlayerController : MonoBehaviour
             // Groundcheck
             RaycastHit hit;
             if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
+            {
+                isGrounded = true;
+            }
+            else if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsBoth))
             {
                 isGrounded = true;
             }
@@ -96,6 +105,10 @@ public class PlayerController : MonoBehaviour
             {
                 RaycastHit stick;
                 if (Physics.Raycast(wallGrabPoint.position, Vector3.right, out stick, .2f, whatIsGrabbable) || Physics.Raycast(wallGrabPoint.position, Vector3.left, out stick, .2f, whatIsGrabbable))
+                {
+                    canGrab = true;
+                }
+                else if (Physics.Raycast(wallGrabPoint.position, Vector3.right, out stick, .2f, whatIsBoth) || Physics.Raycast(wallGrabPoint.position, Vector3.left, out stick, .2f, whatIsBoth))
                 {
                     canGrab = true;
                 }
