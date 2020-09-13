@@ -7,6 +7,12 @@ public class LevelEnd : MonoBehaviour
 {
     public string nextLevelToLoad;
 
+    public bool trainActive;
+
+    public int trainCrashSound;
+
+    public GameObject player;
+
     IEnumerator LoadNextLevelCo()
     {
         UIManager.instance.fadeToBlack = true;
@@ -17,9 +23,31 @@ public class LevelEnd : MonoBehaviour
         PlayerController.instance.stopMove = false;
     }
 
+    IEnumerator DeathByTrainCo()
+    {
+        UIManager.instance.blackScreen.color = new Color(UIManager.instance.blackScreen.color.r, UIManager.instance.blackScreen.color.g, UIManager.instance.blackScreen.color.b, 1f);
+        AudioManager.instance.PlaySFX(trainCrashSound);
+        player.transform.position = new Vector3(0f, 10f, 0f);
+
+        yield return new WaitForSeconds(4f);
+        UIManager.instance.fadeFromBlack = true;
+        UIManager.instance.gameOverScreen.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        UIManager.instance.fadeToBlack = true;
+        yield return new WaitForSeconds(4f);
+
+        SceneManager.LoadScene(nextLevelToLoad);
+        PlayerController.instance.stopMove = false;
+    }
+
     public void LoadNextLevel()
     {
         StartCoroutine(LoadNextLevelCo());
+    }
+
+    public void DeathByTrain()
+    {
+        StartCoroutine(DeathByTrainCo());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +55,16 @@ public class LevelEnd : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerController.instance.stopMove = true;
-            LoadNextLevel();
+
+            if (trainActive)
+            {
+                DeathByTrain();
+            }
+            else
+            {
+                LoadNextLevel();
+            }
+
         }
     }
 }

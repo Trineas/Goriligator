@@ -77,7 +77,7 @@ public class PeekaBoo : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         girlAnim.SetTrigger("FoundYou");
-        AudioManager.instance.PlaySFX(Random.Range(5, 8));
+        AudioManager.instance.PlaySFX(7);
 
         yield return new WaitForSeconds(0.5f);
 

@@ -18,8 +18,9 @@ public class UIManager : MonoBehaviour
     public bool fadeTextToBlack, fadeTextFromBlack;
 
     public GameObject pauseScreen;
-
     public GameObject pauseFirstButton;
+
+    public Image gameOverScreen;
 
     public string mainMenu;
 
