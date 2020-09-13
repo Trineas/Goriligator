@@ -28,12 +28,12 @@ public class PeekaBoo : MonoBehaviour
     {
         if (girlMovesForward)
         {
-            girl.transform.localPosition = new Vector3(Mathf.Lerp(girl.transform.localPosition.x, 15f, speed * Time.deltaTime), girl.transform.localPosition.y, girl.transform.localPosition.z);
+            girl.transform.localPosition = new Vector3(Mathf.Lerp(girl.transform.localPosition.x, 25f, speed * Time.deltaTime), girl.transform.localPosition.y, girl.transform.localPosition.z);
         }
 
         if (girlMovesBack)
         {
-            girl.transform.localPosition = new Vector3(Mathf.Lerp(girl.transform.localPosition.x, 255f, speed * Time.deltaTime), girl.transform.localPosition.y, girl.transform.localPosition.z);
+            girl.transform.localPosition = new Vector3(Mathf.Lerp(girl.transform.localPosition.x, 265f, speed * Time.deltaTime), girl.transform.localPosition.y, girl.transform.localPosition.z);
         }
 
         if (GameManager.instance.dontMove && Input.anyKey)

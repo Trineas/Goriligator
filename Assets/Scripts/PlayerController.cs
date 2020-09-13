@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = new Vector2(0f, doubleJumpForce);
                     AudioManager.instance.PlaySFX(doubleJumpSound);
 
+                    anim.SetTrigger("DoubleJump");
+
                     impactEffect.gameObject.SetActive(true);
                     impactEffect.Stop();
                     impactEffect.transform.position = footstepsEffect.transform.position;
@@ -190,7 +192,7 @@ public class PlayerController : MonoBehaviour
 
         if (sr.flipX)
         {
-            wallGrabPoint.transform.localPosition = new Vector3(-.75f, originalPosition.y, originalPosition.z);
+            wallGrabPoint.transform.localPosition = new Vector3(-1f, originalPosition.y, originalPosition.z);
         }
         else
         {
