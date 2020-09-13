@@ -26,13 +26,18 @@ public class PlayerController : MonoBehaviour
     public Transform camTarget;
     public float aheadAmount, aheadSpeed;
 
-    public bool doubleJumpEnabled, wallJumpEnabled;
+    public bool doubleJumpEnabled, wallJumpEnabled, runEnabled;
 
     public Transform wallGrabPoint;
     private bool canGrab, isGrabbing;
     public float wallJumpTime = .1f;
     private float wallJumpCounter;
     private Vector3 originalPosition;
+
+    public ParticleSystem footstepsEffect, impactEffect;
+    public ParticleSystem.EmissionModule footEmission;
+
+    public int jumpSound, doubleJumpSound;
 
     private void Awake()
     {
@@ -43,6 +48,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         originalPosition = wallGrabPoint.transform.localPosition;
+        footEmission = footstepsEffect.emission;
     }
 
     void Update()
@@ -78,6 +84,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                AudioManager.instance.PlaySFX(jumpSound);
             }
 
             if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
@@ -92,6 +99,12 @@ public class PlayerController : MonoBehaviour
                 {
                     jumpCounter++;
                     rb.velocity = new Vector2(0f, doubleJumpForce);
+                    AudioManager.instance.PlaySFX(doubleJumpSound);
+
+                    impactEffect.gameObject.SetActive(true);
+                    impactEffect.Stop();
+                    impactEffect.transform.position = footstepsEffect.transform.position;
+                    impactEffect.Play();
                 }
             }
 
@@ -189,10 +202,19 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("onGround", isGrounded);
         anim.SetFloat("moveSpeed", rb.velocity.magnitude);
 
-        // Cam Target Look Ahead
-        /*if (Input.GetAxisRaw("Horizontal") != 0f)
+        // Footstep & Impact Effect
+        if (moveInput.x > 0 && runEnabled || moveInput.x < 0 && runEnabled)
         {
-            camTarget.localPosition = new Vector3(Mathf.Lerp(camTarget.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"), aheadSpeed * Time.deltaTime), camTarget.localPosition.y, camTarget.localPosition.z);
-        }*/
+            footEmission.rateOverTime = 35f;
+        }
+        else
+        {
+            footEmission.rateOverTime = 0f;
+        }
+
+        if (!isGrounded)
+        {
+            footEmission.rateOverTime = 0f;
+        }
     }
 }

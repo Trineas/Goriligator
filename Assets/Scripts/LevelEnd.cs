@@ -1,18 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelEnd : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string nextLevelToLoad;
+
+    IEnumerator LoadNextLevelCo()
     {
-        
+        UIManager.instance.fadeToBlack = true;
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(nextLevelToLoad);
+        PlayerController.instance.stopMove = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadNextLevel()
     {
-        
+        StartCoroutine(LoadNextLevelCo());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerController.instance.stopMove = true;
+            LoadNextLevel();
+        }
     }
 }
