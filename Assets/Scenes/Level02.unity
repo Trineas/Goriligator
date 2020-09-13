@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e341b4dba0474424cb5f665adb361b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelToLoad: Level02
+  nextLevelToLoad: Level03
   trainActive: 0
   toiletActive: 1
   trainCrashSound: 0
@@ -4246,6 +4246,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8030558619194081026, guid: 2744d27e3390c1941816206e56d49671,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 81465192d97f2cc4f9aa2b9e8633440d, type: 2}
+    - target: {fileID: 8030558619194081029, guid: 2744d27e3390c1941816206e56d49671,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce7b957c0f0449647b2605701e260664,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2744d27e3390c1941816206e56d49671, type: 3}
 --- !u!1 &969324458 stripped
