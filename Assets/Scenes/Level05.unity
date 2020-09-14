@@ -2204,8 +2204,8 @@ MonoBehaviour:
   speed: 8.5
   intervalMin: 7.5
   intervalMax: 12.5
-  windowOpenSound: 1
-  windowCloseSound: 0
+  windowOpenSound: 32
+  windowCloseSound: 33
   caughtSound: 8
 --- !u!1001 &1092338037
 PrefabInstance:
