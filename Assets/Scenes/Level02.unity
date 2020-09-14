@@ -925,9 +925,11 @@ MonoBehaviour:
   trainActive: 0
   toiletActive: 1
   fireplaceActive: 0
+  blenderActive: 0
   trainCrashSound: 0
   toiletFlushSound: 22
   fireplaceSound: 0
+  blenderSound: 0
   player: {fileID: 969324458}
 --- !u!1 &336494644
 GameObject:
@@ -2278,7 +2280,7 @@ PrefabInstance:
     - target: {fileID: 8030558618456967723, guid: 2744d27e3390c1941816206e56d49671,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8030558618456967723, guid: 2744d27e3390c1941816206e56d49671,
         type: 3}
@@ -3289,6 +3291,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1269870717}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1281993847
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150709, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910414814203150731, guid: 38ce87c4c2897a24fa4091e1c2533b62,
+        type: 3}
+      propertyPath: m_Name
+      value: Hand
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38ce87c4c2897a24fa4091e1c2533b62, type: 3}
 --- !u!1 &1301772606
 GameObject:
   m_ObjectHideFlags: 0
@@ -4368,7 +4439,7 @@ PrefabInstance:
     - target: {fileID: 682485150441916623, guid: 588060a960b6fbe4eb90018504329f33,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 682485150441916623, guid: 588060a960b6fbe4eb90018504329f33,
         type: 3}
