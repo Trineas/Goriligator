@@ -3133,6 +3133,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1935569186495661599, guid: 0d1eec7c62eee3c44aa6ba4287e36d9a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935569186889054290, guid: 0d1eec7c62eee3c44aa6ba4287e36d9a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1935569186933352976, guid: 0d1eec7c62eee3c44aa6ba4287e36d9a,
         type: 3}
       propertyPath: sceneToLoad
@@ -4005,7 +4015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e341b4dba0474424cb5f665adb361b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelToLoad: Level04
+  nextLevelToLoad: Level05
   trainActive: 0
   toiletActive: 0
   fireplaceActive: 0
@@ -4693,7 +4703,7 @@ MonoBehaviour:
   girlAnim: {fileID: 1993750784}
   speed: 8.5
   intervalMin: 7.5
-  intervalMax: 8.5
+  intervalMax: 9.5
   doorOpenSound: 1
   doorCloseSound: 0
   caughtSound: 8

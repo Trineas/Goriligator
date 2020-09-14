@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
 
     public bool dontMove;
 
+    // For looping Audio
+    /*private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }*/
+
     void Start()
     {
         instance = this;

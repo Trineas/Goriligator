@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     private Rigidbody rb;
-    public float moveSpeed, jumpForce, doubleJumpForce;
+    public float moveSpeed, walkSpeed, jumpForce, doubleJumpForce;
     private int jumpCounter;
 
     private Vector2 moveInput;
@@ -56,6 +56,15 @@ public class PlayerController : MonoBehaviour
         if (stopMove)
         {
             rb.velocity = Vector3.zero;
+        }
+
+        if (!runEnabled)
+        {
+            moveSpeed = walkSpeed;
+        }
+        else
+        {
+            moveSpeed = 5f;
         }
 
         if (!stopMove && wallJumpCounter <= 0)

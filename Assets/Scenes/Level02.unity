@@ -1094,7 +1094,7 @@ MonoBehaviour:
   girlAnim: {fileID: 1135131910}
   speed: 8.5
   intervalMin: 7.5
-  intervalMax: 10.5
+  intervalMax: 11.5
   doorOpenSound: 1
   doorCloseSound: 0
   caughtSound: 8
@@ -1544,7 +1544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652233246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.092001, y: 0.195, z: 0}
+  m_LocalPosition: {x: 15.992, y: 0.195, z: 0}
   m_LocalScale: {x: 0.6277739, y: 0.3853998, z: 0.7325489}
   m_Children: []
   m_Father: {fileID: 2041367087}
@@ -2082,7 +2082,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 42976a00f42109846b340573d02b3491,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.988
+      value: 15.887999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 42976a00f42109846b340573d02b3491,
         type: 3}

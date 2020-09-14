@@ -13,14 +13,8 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        //offset = target.position - transform.position;
         treshold = calculcateTreshold();
         rb = followTarget.GetComponent<Rigidbody>();
-    }
-
-    void LateUpdate()
-    {
-        //transform.position = new Vector2(target.transform.position.x, 0f) - offset;
     }
 
     void FixedUpdate()
@@ -42,7 +36,7 @@ public class CameraController : MonoBehaviour
         }
 
         float moveSpeed = rb.velocity.magnitude > speed ? rb.velocity.magnitude : speed;
-        transform.position = Vector3.MoveTowards(transform.position, newPosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
     }
 
     private Vector3 calculcateTreshold()

@@ -7,9 +7,9 @@ public class LevelEnd : MonoBehaviour
 {
     public string nextLevelToLoad;
 
-    public bool trainActive, toiletActive, fireplaceActive, blenderActive;
+    public bool trainActive, toiletActive, fireplaceActive, blenderActive, fireworksActive;
 
-    public int trainCrashSound, toiletFlushSound, fireplaceSound, blenderSound;
+    public int trainCrashSound, toiletFlushSound, fireplaceSound, blenderSound, fireworksSound;
 
     public GameObject player;
 
@@ -90,29 +90,49 @@ public class LevelEnd : MonoBehaviour
         SceneManager.LoadScene(nextLevelToLoad);
         PlayerController.instance.stopMove = false;
     }
+    IEnumerator DeathByFireworksCo()
+    {
+        UIManager.instance.blackScreen.color = new Color(UIManager.instance.blackScreen.color.r, UIManager.instance.blackScreen.color.g, UIManager.instance.blackScreen.color.b, 1f);
+        yield return new WaitForSeconds(2f);
+
+        UIManager.instance.fadeFromBlack = true;
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(nextLevelToLoad);
+    }
 
     public void LoadNextLevel()
     {
+        StopAllCoroutines();
         StartCoroutine(LoadNextLevelCo());
     }
 
     public void DeathByTrain()
     {
+        StopAllCoroutines();
         StartCoroutine(DeathByTrainCo());
     }
 
     public void DeathByToilet()
     {
+        StopAllCoroutines();
         StartCoroutine(DeathByToiletCo());
     }
 
     public void DeathByFire()
     {
+        StopAllCoroutines();
         StartCoroutine(DeathByFireCo());
     }
     public void DeathByBlender()
     {
+        StopAllCoroutines();
         StartCoroutine(DeathByBlenderCo());
+    }
+    public void DeathByFireworks()
+    {
+        StopAllCoroutines();
+        StartCoroutine(DeathByFireworksCo());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -138,6 +158,10 @@ public class LevelEnd : MonoBehaviour
             else if (blenderActive)
             {
                 DeathByBlender();
+            }
+            else if (fireworksActive)
+            {
+                DeathByFireworks();
             }
             else
             {
