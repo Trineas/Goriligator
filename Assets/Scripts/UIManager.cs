@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     public bool fadeTextToBlack, fadeTextFromBlack;
 
     public GameObject pauseScreen;
-    public GameObject pauseFirstButton;
 
     public Image gameOverScreen;
 
@@ -82,8 +81,20 @@ public class UIManager : MonoBehaviour
 
     IEnumerator TextFadeCo()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         fadeTextFromBlack = true;
+    }
+
+    IEnumerator MainMenuCo()
+    {
+        Time.timeScale = 1f;
+        PlayerController.instance.stopMove = true;
+        PeekaBoo.instance.StopAllCoroutines();
+        fadeToBlack = true;
+
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(mainMenu);
+
     }
 
     public void TextFade()
@@ -98,7 +109,6 @@ public class UIManager : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(mainMenu);
-        Time.timeScale = 1f;
+        StartCoroutine(MainMenuCo());
     }
 }

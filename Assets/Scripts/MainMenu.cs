@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
     {
         fadeToBlack = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         SceneManager.LoadScene(firstLevel);
     }
@@ -50,7 +50,7 @@ public class MainMenu : MonoBehaviour
     {
         fadeToBlack = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         Application.Quit();
     }

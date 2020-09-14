@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public Transform camTarget;
     public float aheadAmount, aheadSpeed;
 
-    public bool doubleJumpEnabled, wallJumpEnabled, runEnabled;
+    public bool doubleJumpEnabled, wallJumpEnabled, jumpEnabled, runEnabled;
 
     public Transform wallGrabPoint;
     private bool canGrab, isGrabbing;
@@ -80,39 +80,42 @@ public class PlayerController : MonoBehaviour
                 isGrounded = false;
             }
 
-            // Jump
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (jumpEnabled)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                AudioManager.instance.PlaySFX(jumpSound);
-            }
-
-            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
-            }
-
-            // Double Jump
-            if (doubleJumpEnabled)
-            {
-                if (Input.GetButtonDown("Jump") && jumpCounter == 0 && !isGrounded)
+                // Jump
+                if (Input.GetButtonDown("Jump") && isGrounded)
                 {
-                    jumpCounter++;
-                    rb.velocity = new Vector2(0f, doubleJumpForce);
-                    AudioManager.instance.PlaySFX(doubleJumpSound);
-
-                    anim.SetTrigger("DoubleJump");
-
-                    impactEffect.gameObject.SetActive(true);
-                    impactEffect.Stop();
-                    impactEffect.transform.position = footstepsEffect.transform.position;
-                    impactEffect.Play();
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    AudioManager.instance.PlaySFX(jumpSound);
                 }
-            }
 
-            if (isGrounded)
-            {
-                jumpCounter = 0;
+                if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
+                }
+
+                // Double Jump
+                if (doubleJumpEnabled)
+                {
+                    if (Input.GetButtonDown("Jump") && jumpCounter == 0 && !isGrounded)
+                    {
+                        jumpCounter++;
+                        rb.velocity = new Vector2(0f, doubleJumpForce);
+                        AudioManager.instance.PlaySFX(doubleJumpSound);
+
+                        anim.SetTrigger("DoubleJump");
+
+                        impactEffect.gameObject.SetActive(true);
+                        impactEffect.Stop();
+                        impactEffect.transform.position = footstepsEffect.transform.position;
+                        impactEffect.Play();
+                    }
+                }
+
+                if (isGrounded)
+                {
+                    jumpCounter = 0;
+                }
             }
 
             // Wall Jump
