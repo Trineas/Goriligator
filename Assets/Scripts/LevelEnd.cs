@@ -7,9 +7,9 @@ public class LevelEnd : MonoBehaviour
 {
     public string nextLevelToLoad;
 
-    public bool trainActive, toiletActive;
+    public bool trainActive, toiletActive, fireplaceActive;
 
-    public int trainCrashSound, toiletFlushSound;
+    public int trainCrashSound, toiletFlushSound, fireplaceSound;
 
     public GameObject player;
 
@@ -57,6 +57,23 @@ public class LevelEnd : MonoBehaviour
         PlayerController.instance.stopMove = false;
     }
 
+    IEnumerator DeathByFireCo()
+    {
+        UIManager.instance.blackScreen.color = new Color(UIManager.instance.blackScreen.color.r, UIManager.instance.blackScreen.color.g, UIManager.instance.blackScreen.color.b, 1f);
+        AudioManager.instance.PlaySFX(fireplaceSound);
+        player.transform.position = new Vector3(0f, 10f, 0f);
+
+        yield return new WaitForSeconds(4f);
+        UIManager.instance.fadeFromBlack = true;
+        UIManager.instance.gameOverScreen.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        UIManager.instance.fadeToBlack = true;
+        yield return new WaitForSeconds(4f);
+
+        SceneManager.LoadScene(nextLevelToLoad);
+        PlayerController.instance.stopMove = false;
+    }
+
     public void LoadNextLevel()
     {
         StartCoroutine(LoadNextLevelCo());
@@ -72,11 +89,18 @@ public class LevelEnd : MonoBehaviour
         StartCoroutine(DeathByToiletCo());
     }
 
+    public void DeathByFire()
+    {
+        StartCoroutine(DeathByFireCo());
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             PlayerController.instance.stopMove = true;
+
+            PeekaBoo.instance.StopAllCoroutines();
 
             if (trainActive)
             {
@@ -85,6 +109,10 @@ public class LevelEnd : MonoBehaviour
             else if (toiletActive)
             {
                 DeathByToilet();
+            }
+            else if (fireplaceActive)
+            {
+                DeathByFire();
             }
             else
             {

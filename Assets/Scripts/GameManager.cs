@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public string sceneToLoad;
 
+    public int musicToPlay;
+
     public bool dontMove;
 
     void Start()
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        AudioManager.instance.PlayMusic(musicToPlay);
     }
 
     void Update()
@@ -62,9 +66,6 @@ public class GameManager : MonoBehaviour
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(UIManager.instance.pauseFirstButton);
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PeekaBoo : MonoBehaviour
 {
+    public static PeekaBoo instance;
+
     public GameObject girl;
     public Animator doorAnim, girlAnim;
     public float speed;
@@ -16,6 +18,7 @@ public class PeekaBoo : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         float randomTime = Random.Range(intervalMin, intervalMax);
 
         Invoke("OpenDoor", randomTime);
@@ -45,7 +48,7 @@ public class PeekaBoo : MonoBehaviour
         }
     }
 
-    IEnumerator OpenDoorCo()
+    public IEnumerator OpenDoorCo()
     {
         doorAnim.SetTrigger("DoorSlam");
         AudioManager.instance.PlaySFX(doorOpenSound);
