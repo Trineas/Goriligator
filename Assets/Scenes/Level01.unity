@@ -3619,39 +3619,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5387436485827156366, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_Text
-      value: 'Level 1: The Bedroom
-
-
-        End my Life!'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436485829647206, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436485829647206, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436485976289134, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436485976289134, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436485976289134, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -200
-      objectReference: {fileID: 0}
     - target: {fileID: 5387436486306952368, guid: 145c515c518fcaa44b02a4784e25d915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3761,31 +3728,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436486482139325, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436486686276298, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436487085237320, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436487161916033, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387436487306484311, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 145c515c518fcaa44b02a4784e25d915, type: 3}

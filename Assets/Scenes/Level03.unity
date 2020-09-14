@@ -4373,7 +4373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e341b4dba0474424cb5f665adb361b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelToLoad: Level03
+  nextLevelToLoad: Level04
   trainActive: 0
   toiletActive: 0
   fireplaceActive: 1
