@@ -13,6 +13,12 @@ public class MainMenu : MonoBehaviour
     public bool fadeToBlack, fadeFromBlack;
     public float blackScreenFadeSpeed;
 
+    void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     void Update()
     {
         if (fadeToBlack)
