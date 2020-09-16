@@ -13,13 +13,7 @@ public class GameManager : MonoBehaviour
 
     public int musicToPlay;
 
-    public bool dontMove;
-
-    // For looping Audio
-    /*private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }*/
+    public bool dontMove, cutScenePlaying;
 
     void Start()
     {
@@ -33,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7))
+        if (Input.GetKeyDown(KeyCode.Escape) && !cutScenePlaying || Input.GetKeyDown(KeyCode.Joystick1Button7) && cutScenePlaying)
         {
             PauseUnpause();
         }

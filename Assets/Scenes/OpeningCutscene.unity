@@ -1034,6 +1034,11 @@ PrefabInstance:
       propertyPath: musicToPlay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1935569186933352976, guid: 0d1eec7c62eee3c44aa6ba4287e36d9a,
+        type: 3}
+      propertyPath: cutScenePlaying
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1935569186933352977, guid: 0d1eec7c62eee3c44aa6ba4287e36d9a,
         type: 3}
       propertyPath: m_LocalPosition.x

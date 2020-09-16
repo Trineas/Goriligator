@@ -2812,7 +2812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985247797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.51731396, y: -1.99, z: 2.76416}
+  m_LocalPosition: {x: 0.51731396, y: -2.12, z: 2.76416}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 1201661727}
@@ -4020,10 +4020,12 @@ MonoBehaviour:
   toiletActive: 0
   fireplaceActive: 0
   blenderActive: 1
+  fireworksActive: 0
   trainCrashSound: 0
   toiletFlushSound: 0
   fireplaceSound: 0
   blenderSound: 20
+  fireworksSound: 0
   player: {fileID: 1157419894}
 --- !u!65 &1577455424
 BoxCollider:
@@ -4208,8 +4210,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676063462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.897995, y: 2.33, z: -0.1412}
-  m_LocalScale: {x: 1.3333316, y: 1.8320644, z: 2.9118237}
+  m_LocalPosition: {x: 33.75, y: 3.83, z: -0.1412}
+  m_LocalScale: {x: 1.3333316, y: 9.94395, z: 2.9118237}
   m_Children: []
   m_Father: {fileID: 985247798}
   m_RootOrder: 15
@@ -4301,7 +4303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687566171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.577, y: 0.934, z: -0.25}
+  m_LocalPosition: {x: 17.577, y: 0.83, z: -0.25}
   m_LocalScale: {x: 2.99662, y: 0.14566748, z: 2.1611233}
   m_Children: []
   m_Father: {fileID: 985247798}

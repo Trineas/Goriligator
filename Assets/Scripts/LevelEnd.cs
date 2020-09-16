@@ -13,6 +13,16 @@ public class LevelEnd : MonoBehaviour
 
     public GameObject player;
 
+    public bool deathCoroutinePlaying;
+
+    private void Update()
+    {
+        if (deathCoroutinePlaying)
+        {
+            PeekaBoo.instance.StopAllCoroutines();
+        }
+    }
+
     IEnumerator LoadNextLevelCo()
     {
         UIManager.instance.fadeToBlack = true;
@@ -37,6 +47,7 @@ public class LevelEnd : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         SceneManager.LoadScene(nextLevelToLoad);
+        deathCoroutinePlaying = false;
         PlayerController.instance.stopMove = false;
     }
 
@@ -54,7 +65,9 @@ public class LevelEnd : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         SceneManager.LoadScene(nextLevelToLoad);
+        deathCoroutinePlaying = false;
         PlayerController.instance.stopMove = false;
+
     }
 
     IEnumerator DeathByFireCo()
@@ -71,7 +84,9 @@ public class LevelEnd : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         SceneManager.LoadScene(nextLevelToLoad);
+        deathCoroutinePlaying = false;
         PlayerController.instance.stopMove = false;
+
     }
 
     IEnumerator DeathByBlenderCo()
@@ -88,7 +103,9 @@ public class LevelEnd : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         SceneManager.LoadScene(nextLevelToLoad);
+        deathCoroutinePlaying = false;
         PlayerController.instance.stopMove = false;
+
     }
     IEnumerator DeathByFireworksCo()
     {
@@ -97,41 +114,42 @@ public class LevelEnd : MonoBehaviour
 
         UIManager.instance.fadeFromBlack = true;
         yield return new WaitForSeconds(2f);
+        deathCoroutinePlaying = false;
 
         SceneManager.LoadScene(nextLevelToLoad);
     }
 
     public void LoadNextLevel()
     {
-        StopAllCoroutines();
+        deathCoroutinePlaying = true;
         StartCoroutine(LoadNextLevelCo());
     }
 
     public void DeathByTrain()
     {
-        StopAllCoroutines();
+        deathCoroutinePlaying = true;
         StartCoroutine(DeathByTrainCo());
     }
 
     public void DeathByToilet()
     {
-        StopAllCoroutines();
+        deathCoroutinePlaying = true;
         StartCoroutine(DeathByToiletCo());
     }
 
     public void DeathByFire()
     {
-        StopAllCoroutines();
+        deathCoroutinePlaying = true;
         StartCoroutine(DeathByFireCo());
     }
     public void DeathByBlender()
     {
-        StopAllCoroutines();
+        deathCoroutinePlaying = true;
         StartCoroutine(DeathByBlenderCo());
     }
     public void DeathByFireworks()
     {
-        StopAllCoroutines();
+        deathCoroutinePlaying = true;
         StartCoroutine(DeathByFireworksCo());
     }
 

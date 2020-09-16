@@ -42,8 +42,8 @@ public class PeekaBoo : MonoBehaviour
         if (GameManager.instance.dontMove && Input.anyKey)
         {
             GameManager.instance.dontMove = false;
-            StopAllCoroutines();
 
+            StopAllCoroutines();
             StartCoroutine(CaughtCo());
         }
     }
