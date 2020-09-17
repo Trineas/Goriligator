@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wood Brown 1
+  m_Name: Wood Red Thin Out
   m_Shader: {fileID: 4800000, guid: 9baf30ce95c751649b14d96da3a4b4d5, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ _EMISSIVE_SIMPLE _OUTLINE_NML
+  m_ShaderKeywords: _ _EMISSIVE_SIMPLE _OUTLINE_POS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -65,7 +65,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: eb2c2116ab2605a49a6b2d82ad5217fe, type: 3}
-        m_Scale: {x: 5.79, y: 8.22}
+        m_Scale: {x: 1, y: 9}
         m_Offset: {x: 0, y: 0}
     - _MatCap_Sampler:
         m_Texture: {fileID: 0}
@@ -77,7 +77,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: 03d1dd742a8b01d409191d0d457edc8a, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 1, y: 22.27}
         m_Offset: {x: 0, y: 0}
     - _NormalMapForMatCap:
         m_Texture: {fileID: 0}
@@ -120,16 +120,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _1st2nd_Shades_Feather: 0.0001
-    - _1st_ShadeColor_Feather: 0.058
-    - _1st_ShadeColor_Step: 0.523
-    - _2nd_ShadeColor_Feather: 0.0001
-    - _2nd_ShadeColor_Step: 0.025
+    - _1st2nd_Shades_Feather: 0.067
+    - _1st_ShadeColor_Feather: 0.107
+    - _1st_ShadeColor_Step: 0.847
+    - _2nd_ShadeColor_Feather: 0.067
+    - _2nd_ShadeColor_Step: 0.738
     - _Add_Antipodean_RimLight: 0
     - _Ap_RimLight_FeatherOff: 0
     - _Ap_RimLight_Power: 0.1
-    - _BaseColor_Step: 0.523
-    - _BaseShade_Feather: 0.058
+    - _BaseColor_Step: 0.847
+    - _BaseShade_Feather: 0.107
     - _Base_Speed: 0
     - _BlurLevelMatcap: 0
     - _BumpScale: 1
@@ -153,7 +153,7 @@ Material:
     - _Is_BakedNormal: 0
     - _Is_BlendAddToHiColor: 1
     - _Is_BlendAddToMatCap: 1
-    - _Is_BlendBaseColor: 0
+    - _Is_BlendBaseColor: 1
     - _Is_ColorShift: 0
     - _Is_Filter_HiCutPointLightColor: 1
     - _Is_Filter_LightColor: 0
@@ -182,12 +182,12 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _Nearest_Distance: 0.5
-    - _OUTLINE: 0
+    - _OUTLINE: 1
     - _OcclusionStrength: 1
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
-    - _Outline_Width: 0.18
+    - _Outline_Width: 16.92
     - _Parallax: 0.02
     - _RimLight: 0
     - _RimLight_FeatherOff: 0
@@ -199,7 +199,7 @@ Material:
     - _Scroll_EmissiveU: 0
     - _Scroll_EmissiveV: 0
     - _Set_SystemShadowsToBase: 1
-    - _ShadeColor_Step: 0.025
+    - _ShadeColor_Step: 0.738
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -217,19 +217,19 @@ Material:
     - _Use_1stAs2nd: 1
     - _Use_BaseAs1st: 1
     - _ZWrite: 1
-    - _simpleUI: 2
+    - _simpleUI: 0
     - _utsTechnique: 0
     - _utsVersion: 2.075
     m_Colors:
-    - _1st_ShadeColor: {r: 0.23584908, g: 0.12628478, b: 0.010012457, a: 1}
-    - _2nd_ShadeColor: {r: 0.8773585, g: 0.64173496, b: 0.3517711, a: 1}
+    - _1st_ShadeColor: {r: 0.4784314, g: 0.18039216, b: 0.18039216, a: 1}
+    - _2nd_ShadeColor: {r: 0.29411766, g: 0.1137255, b: 0.10196079, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.39607844, g: 0.26666668, b: 0.17254902, a: 1}
-    - _Color: {r: 0.6132076, g: 0.3137255, b: 0.21176471, a: 1}
+    - _BaseColor: {r: 0.8207547, g: 0.2748754, b: 0.2818292, a: 1}
+    - _Color: {r: 0.8207547, g: 0.2748754, b: 0.2818292, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _HighColor: {r: 0.7169812, g: 0.6412247, b: 0.5512638, a: 1}
+    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
