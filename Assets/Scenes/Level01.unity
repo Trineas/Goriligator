@@ -3920,11 +3920,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5387436486686276298, guid: 145c515c518fcaa44b02a4784e25d915,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 145c515c518fcaa44b02a4784e25d915, type: 3}
 --- !u!1 &1256330191
@@ -6131,7 +6126,7 @@ MonoBehaviour:
   girlAnim: {fileID: 230998995}
   speed: 8.5
   intervalMin: 7.5
-  intervalMax: 12.5
+  intervalMax: 14.5
   doorOpenSound: 1
   doorCloseSound: 0
   caughtSound: 8

@@ -1107,7 +1107,7 @@ MonoBehaviour:
   girlAnim: {fileID: 1135131910}
   speed: 8.5
   intervalMin: 7.5
-  intervalMax: 11.5
+  intervalMax: 13.5
   doorOpenSound: 1
   doorCloseSound: 0
   caughtSound: 8
